@@ -1,7 +1,7 @@
 #include <stdio.h>
 
 int main () {
-    int torre, bispo, rainha;
+    int torre, bispo, rainha, cavalo;
     
     //Movimento da torre
     
@@ -33,4 +33,17 @@ int main () {
         printf("\nEsquerda %d", rainha);
     } while (rainha < 8);
 
+    //Movimento do Cavalo
+
+    printf("\n\n###### Movimento do Cavalo para Esquerda ######\n");
+
+    for (cavalo = 1; cavalo <= 2; cavalo++) {
+        printf("\nBaixo");
+        while (cavalo == 2) {
+            printf("\nEsquerda");
+            cavalo++;
+        }
+    }
+
+    //Se quisermos reutilizar o movimento do cavalo basta definir 1 para a variavel cavalo
 }
