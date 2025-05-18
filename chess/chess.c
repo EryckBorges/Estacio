@@ -1,49 +1,73 @@
 #include <stdio.h>
 
-int main () {
-    int torre, bispo, rainha, cavalo;
-    
-    //Movimento da torre
-    
-    torre = 0;
+//Função para mover a Torre na horizontal para a direita
 
-    printf("###### Movimento da Torre para a Direita ######\n");
-    
-    while (torre < 5) {
-        torre++;
-        printf("\nDireita %d", torre);
+void torre() {
+    //Definimos um valor total de casa na horizontal para a torre percorrer
+    for (int x = 8, torre = 1; torre <= x; torre++) {
+        printf("\nDireita %d\n", torre);
     }
+}
 
-    //Movimento do Bispo
+//Função para mover o Bispo 
 
-    printf("\n\n###### Movimento do Bispo para Cima e para Direita ######\n");
+void bispo (int x, int y) {
+    if (x >= 8 || y >= 8) return;
 
-    for(bispo = 0; bispo < 5; bispo++) {
-        printf("\nCima, Direita %d", bispo);
-    }
+    printf("Cima\n");
+    printf("Direita\n");
 
-    //Movimento da Rainha
-
-    printf("\n\n###### Movimento da Rainha para Esquerda ######\n");
-
-    rainha = 0;
+    bispo (x + 1, y + 1);
     
-    do {
+}
+
+//Função para mover o Cavalo
+
+void cavalo() {
+    for (int v = 0; v < 2; v++) {
+        printf("\nCima");
+        while (v == 1) {
+            printf("\nDireita");
+            v++;
+        }
+    }
+}
+
+//Função para mover a Dama
+
+void rainha() {
+    int rainha = 0;
+
+    while (rainha < 8)
+    {
+        printf("\nEsquerda");
         rainha++;
-        printf("\nEsquerda %d", rainha);
-    } while (rainha < 8);
+    }
+    
+}
+
+int main () {
+    //Movimento da Torre 
+    printf("\n////////////////////////////////////////////////////////////////////////////////");
+    printf("\n######### Movimento da Torre #########\n");
+
+    torre();
+
+    // //Movimento do Bispo
+    printf("\n////////////////////////////////////////////////////////////////////////////////");
+    printf("\n######### Movimento do Bispo #########\n\n");
+
+    bispo(0, 0);
 
     //Movimento do Cavalo
 
-    printf("\n\n###### Movimento do Cavalo para Esquerda ######\n");
+    printf("\n////////////////////////////////////////////////////////////////////////////////");
+    printf("\n######### Movimento do cavalo #########\n");
+    cavalo();
 
-    for (cavalo = 1; cavalo <= 2; cavalo++) {
-        printf("\nBaixo");
-        while (cavalo == 2) {
-            printf("\nEsquerda");
-            cavalo++;
-        }
-    }
+    //Movimento da Rainha
 
-    //Se quisermos reutilizar o movimento do cavalo basta definir 1 para a variavel cavalo
+    printf("\n\n////////////////////////////////////////////////////////////////////////////////");
+    printf("\n######### Movimento da Rainha #########\n");
+    rainha();
 }
